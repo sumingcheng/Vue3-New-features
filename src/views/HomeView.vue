@@ -1,28 +1,34 @@
 <template>
   <div class="home">
-    {{ reactiveData.data }}
-    <button @click="changeData">+5</button>
+    <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" background-color="#545c64"
+        text-color="#fff" active-text-color="#ffd04b" @select="handleSelect"
+    >
+      <el-menu-item index="1" @click="Home">Home</el-menu-item>
+      <el-menu-item index="2" @click="About">About</el-menu-item>
+    </el-menu>
   </div>
 </template>
 
-<script>
-import HelloWorld from '@/components/HelloWorld.vue'
-// reactive 响应式数据
-import {reactive} from "vue";
+<script lang="ts" setup>
+import {ref} from 'vue'
+import {useRouter, useRoute} from 'vue-router';
 
-export default {
-  name: 'HomeView',
-  components: {
-    HelloWorld
-  },
-  setup() {
-    let reactiveData = reactive({
-      data: 10
-    })
-    const changeData = () => {
-      reactiveData.data += 5
-    }
-    return {reactiveData, changeData}
-  }
+const $router = useRouter()
+
+const $route = useRoute()
+
+const activeIndex = ref('1')
+const handleSelect = (key: string, keyPath: string[]) => {
+  // console.log(key, keyPath)
 }
+
+// 路由
+const Home = () => {
+  $router.push({path: 'home'})
+}
+const About = () => {
+  $router.push({path: 'about'})
+
+}
+
 </script>
