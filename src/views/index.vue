@@ -9,6 +9,7 @@
   </div>
 </template>
 
+
 <script lang="ts" setup>
 import {ref} from 'vue'
 import {useRouter, useRoute} from 'vue-router';
@@ -28,7 +29,6 @@ const Home = () => {
 }
 const About = () => {
   $router.push({path: 'about'})
-
 }
 
 </script>
