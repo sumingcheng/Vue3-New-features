@@ -1,9 +1,8 @@
 <template>
   <div class="home">
-    <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" background-color="#545c64"
-        text-color="#fff" active-text-color="#ffd04b" @select="handleSelect"
-    >
-      <el-menu-item index="1" @click="Home">Home</el-menu-item>
+    <el-menu :default-active="activeIndex" class="el-menu-vertical-demo" mode="horizontal" background-color="#545c64"
+        text-color="#fff" active-text-color="#ffd04b" @select="handleSelect">
+      <el-menu-item index="1" @click="index">Home</el-menu-item>
       <el-menu-item index="2" @click="About">About</el-menu-item>
     </el-menu>
   </div>
@@ -24,7 +23,7 @@ const handleSelect = (key: string, keyPath: string[]) => {
 }
 
 // 路由
-const Home = () => {
+const index = () => {
   $router.push({path: 'home'})
 }
 const About = () => {
